@@ -27,11 +27,17 @@ public class MainTapa {
     }
 
     public static void saveTapa(Tapa tapa) {
-
+        printTapas();
+        TapaDataRepository tapaDataRepository = TapaDataRepository.newInstance();
+        SaveTapaUseCase saveTapaUseCase = new SaveTapaUseCase(tapaDataRepository);
+        saveTapaUseCase.execute(tapa);
     }
 
     public static void updateTapa(Tapa tapa) {
-
+        printTapas();
+        UpdateTapaUseCase updateTapaUseCase = new UpdateTapaUseCase(TapaDataRepository.newInstance());
+        updateTapaUseCase.execute(tapa);
+        printTapas();
     }
 
 
